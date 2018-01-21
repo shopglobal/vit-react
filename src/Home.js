@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import FilterBar from './components/FilterBar';
 import steem from 'steem';
 import { Link } from 'react-router-dom';
+import moment from 'moment'
 
 class Home extends Component {
 
@@ -115,8 +116,21 @@ class Home extends Component {
                     this.state.posts.map(
 
                         (Post) =>
-                            <div className="col-3" style={{'border': '1px solid #eee'}} key={ Post.id } ref={ Post.id }>
-                                <Link to={ "/" + Post.author + "/" + Post.permlink }>{Post.title}</Link>
+                            <div className="col-lg-3 col-md-4 item-wrapper mb-3" key={ Post.id } ref={ Post.id }>
+                                <Link to={ "/" + Post.author + "/" + Post.permlink }>
+                                    <img src="http://via.placeholder.com/300x180" clasName="img-fluid"/>
+                                </Link>
+                                <div className="d-flex w-100">
+                                    <div className="title">
+                                        <Link to={ "/" + Post.author + "/" + Post.permlink }>{this.truncateTitle(Post.title)}</Link>
+                                    </div>
+                                    <div className="earnings text-right">
+                                        $300,35
+                                    </div>
+                                </div>
+                                <div class="meta-info">
+                                    { Post.author } &middot; { moment.utc(Post.active).tz( moment.tz.guess() ).fromNow() }
+                                </div>
                             </div>
                         ) 
                     }

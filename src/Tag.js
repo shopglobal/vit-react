@@ -137,7 +137,6 @@ class Tag extends Component {
                                 <div class="meta-info">
                                     { Post.author } &middot; { moment.utc(Post.active).tz( moment.tz.guess() ).fromNow() }
                                 </div>
-                                
                             </div>
                         ) 
                     }
