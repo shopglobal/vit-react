@@ -62,7 +62,7 @@ class LeftSidebar extends Component {
                     }
                 </ul>,
 
-                <button className="btn btn-dark btn-block" onClick={(e) => this.toggleTags(e)} key="tag-button-control">Expand</button>
+                <button className="btn btn-dark btn-sm  btn-block" onClick={(e) => this.toggleTags(e)} key="tag-button-control">Expand</button>
             ]
         }
     }
@@ -71,7 +71,9 @@ class LeftSidebar extends Component {
         
         return (
             <div className="col left-sidebar">
+                <h3>Categories</h3>
                 { this.renderTags() }
+                <h3>Featured Channels</h3>
                 <FeaturedChannels/> 
             </div>
         )

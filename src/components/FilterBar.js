@@ -19,11 +19,11 @@ class FilterBar extends Component {
     render() {
         
         return [
-            <ul className="col filter-bar" key="filter-bar">
-                <li><NavLink to={ this.props.path + "trending"} activeClassName="active">Trending</NavLink></li>
-                <li><NavLink to={ this.props.path + "new"} activeClassName="active">New</NavLink></li>
-                <li><NavLink to={ this.props.path + "hot"} activeClassName="active">Hot</NavLink></li>
-                <li><NavLink to={ this.props.path + "promoted"} activeClassName="active">Promoted</NavLink></li>
+            <ul className="col filter-bar mb-4" key="filter-bar">
+                <li><NavLink to={ this.props.path + "trending"} className="" activeClassName="active">Trending</NavLink></li>
+                <li><NavLink to={ this.props.path + "new"} className="" activeClassName="active">New</NavLink></li>
+                <li><NavLink to={ this.props.path + "hot"} className="" activeClassName="active">Hot</NavLink></li>
+                <li><NavLink to={ this.props.path + "promoted"} className="" activeClassName="active">Promoted</NavLink></li>
             </ul>
         ]
         
