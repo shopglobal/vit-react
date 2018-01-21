@@ -12,6 +12,7 @@ import reducers from './reducers';
 import './sass/bootstrap.scss';
 import './sass/App.scss';
 import './sass/Select.scss';
+import './sass/VideoPlayer.scss';
 
 // Components
 import Bootstrap from './Bootstrap';
