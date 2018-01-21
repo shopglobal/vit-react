@@ -1,11 +1,5 @@
 const initialState = {
-    unresolved: true, 
-    authorized: false, 
-    user: null,
-    team: null,
-    call_registration: false,
-    access_token: "",
-    refresh_token: ""
+
 };
 
 export default function(state = initialState, action) {
@@ -93,14 +87,6 @@ export default function(state = initialState, action) {
 
         break;
 
-
-        case 'REGISTER_CALLS':
-
-            return Object.assign({}, state, {
-                call_registration: action.payload 
-            });
-
-        break;
 
         default:
             return state;

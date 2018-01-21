@@ -13,7 +13,7 @@ export default function(state = initialState, action) {
             var users = {};
 
             action.payload.forEach(function(item, i) {
-                users[item.id] = item; // create associative array
+                users[item.id] = item;
             });
 
             return Object.assign({}, state, {
