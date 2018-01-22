@@ -104,6 +104,10 @@ class Home extends Component {
 
     }
 
+    truncateTitle(title) {
+        return title.substring(0, 40);
+    }
+
     renderPosts() {
         if(this.state.loading) {
             return (
