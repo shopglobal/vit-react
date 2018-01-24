@@ -18,6 +18,33 @@ html, body {
     color:#fff;
 }
 
+.featured-channels-list {
+    a {
+        text-decoration:none;
+
+        &:hover {
+            color:#666;
+        }
+    }
+
+    .featured-channel-item {
+
+      margin-bottom:10px;
+
+      .avatar-holder {
+          width:40px;
+          img {
+              border-radius:4px;
+              display:block;
+          }
+      }
+
+      .data-holder {
+          width:calc(100% - 40px);
+      }
+  } 
+}
+
 /* Filter Bar */
 
 .filter-bar {

@@ -24,7 +24,7 @@ class FeaturedChannels extends Component {
         return (
             <div>
                 <h3>Featured Channels</h3>
-                <ul className="list-unstyled">
+                <ul className="list-unstyled featured-channels-list">
                     { 
 
                     this.state.featured.map(
@@ -33,7 +33,14 @@ class FeaturedChannels extends Component {
                             <li key={ Channel.url } ref={ Channel.url }>
     
                                 <NavLink to={ '/channel/' + Channel.url }>
-                                    { Channel.name }
+                                    <div className="d-flex featured-channel-item">
+                                        <div className="avatar-holder">
+                                            <img src="http://via.placeholder.com/30x30"/>
+                                        </div>
+                                        <div className="data-holder">
+                                            { Channel.name }
+                                        </div>
+                                    </div>
                                 </NavLink>
                             </li>
                         ) 

@@ -12,7 +12,7 @@ import reducers from './reducers';
 import './sass/bootstrap.scss';
 import './sass/App.scss';
 import './sass/Select.scss';
-import './sass/VideoPlayer.scss';
+import './sass/video/video-react.scss';
 import './sass/Header.scss';
 import './sass/LeftSidebar.scss';
 import './sass/Item.scss';
