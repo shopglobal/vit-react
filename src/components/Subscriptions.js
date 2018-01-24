@@ -22,6 +22,8 @@ class Subscriptions extends Component {
 
         steem.api.getFollowing('sundaybaking', 0, 'blog', 10, (err, result) => {
 
+            console.log(result)
+
             this.setState({
                 subscriptions: result,
                 loading: false

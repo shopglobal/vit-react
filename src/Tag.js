@@ -108,9 +108,14 @@ class Tag extends Component {
     }
 
     renderPosts() {
+
         if(this.state.loading) {
             return (
-                <div>Loading</div>
+                <div className="row w-100 h-100 justify-content-center mt-5">
+
+                    <div class="loader">Loading...</div>
+
+                </div>
             )
         } else {
             return (
@@ -125,6 +130,7 @@ class Tag extends Component {
                 </div>
             )
         }
+
     }
 
     render() {
