@@ -8,8 +8,6 @@ class FilterBar extends Component {
 
         super(props);
 
-        console.log("PROPS OF FILTER", this.props)
-
         this.state = {
 
         }   

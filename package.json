@@ -37,6 +37,7 @@
     "moment-timezone": "^0.5.13",
     "node-sass": "^4.7.2",
     "object-assign": "4.1.1",
+    "open-iconic": "^1.1.1",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",

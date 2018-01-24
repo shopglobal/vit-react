@@ -28,7 +28,7 @@ class Home extends Component {
 
     }
 
-    componentWillReceiveProps(nextProps) {      
+    componentWillReceiveProps(nextProps) {    
 
         if( nextProps.match.params.filter != this.state.filter ) {
             this.setState({
@@ -122,7 +122,7 @@ class Home extends Component {
                         (Post) =>
                             <div className="col-lg-3 col-md-4 item-wrapper mb-3" key={ Post.id } ref={ Post.id }>
                                 <Link to={ "/" + Post.author + "/" + Post.permlink }>
-                                    <img src="http://via.placeholder.com/300x180" clasName="img-fluid"/>
+                                    <img src="http://via.placeholder.com/300x180" className="img-fluid"/>
                                 </Link>
                                 <div className="d-flex w-100">
                                     <div className="title">
@@ -132,7 +132,7 @@ class Home extends Component {
                                         $300,35
                                     </div>
                                 </div>
-                                <div class="meta-info">
+                                <div className="meta-info">
                                     { Post.author } &middot; { moment.utc(Post.active).tz( moment.tz.guess() ).fromNow() }
                                 </div>
                             </div>

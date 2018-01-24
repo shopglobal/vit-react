@@ -17,16 +17,13 @@ class FeaturedChannels extends Component {
 
     } 
 
-    componentDidMount() {
-
-        console.log("List", List)
-
-    }
+    componentDidMount() {}
 
     render() {
         
         return (
-            <div className="featured-channels">
+            <div>
+                <h3>Featured Channels</h3>
                 <ul className="list-unstyled">
                     { 
 
@@ -35,7 +32,7 @@ class FeaturedChannels extends Component {
                         (Channel) =>
                             <li key={ Channel.url } ref={ Channel.url }>
     
-                                <NavLink to={ '/channel/' + Channel.url + '/trending' }>
+                                <NavLink to={ '/channel/' + Channel.url }>
                                     { Channel.name }
                                 </NavLink>
                             </li>

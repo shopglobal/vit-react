@@ -1,8 +1,58 @@
 import React, { Component } from 'react';
 import LeftSidebar from './components/LeftSidebar';
 import Header from './components/Header';
+import { connect } from 'react-redux';
+import steem from 'steem';
+import { restoreLogin } from './actions/app';
 
 class Bootstrap extends Component {
+
+    componentDidMount() {
+
+        // check if we have any creds saved up in localStorage
+        let username = localStorage.getItem("username"), 
+            publicWif = localStorage.getItem("publicWif");
+
+        if(username && publicWif && !this.props.app.authorized) {
+
+            console.log("RUN BOOTSTRAP CHECK")
+
+            // verify the creds against the blockchain
+            steem.api.getAccounts([username], (err, accounts) => {
+
+                if(accounts.length == 0) {
+                    
+                    // Invalid account name. Clean up local storage
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('publicWif');
+                    return;
+
+                }
+
+                // Verify publicWif against posting_key
+                let posting_key = accounts[0]['posting'].key_auths[0][0];
+
+                if(posting_key == publicWif) {
+
+                    // saved creds are valid. Restore the session
+                    this.props.restoreLogin({
+                        "username": username,
+                        "publicWif": publicWif
+                    });
+
+                } else {
+
+                    // saved creds are not valid. Clean up local storage
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('publicWif');
+
+                }
+
+            });
+
+        }
+
+    }
 
     render() {
 
@@ -21,4 +71,12 @@ class Bootstrap extends Component {
 }
 
 
-export default Bootstrap;
+function mapStateToProps(state) {
+
+    return { 
+        app: state.app
+    };
+    
+}
+
+export default connect(mapStateToProps, { restoreLogin })(Bootstrap);

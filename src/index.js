@@ -19,6 +19,7 @@ import Bootstrap from './Bootstrap';
 import Home from './Home';
 import Tag from './Tag';
 import Post from './Post';
+import Login from './Login';
 
 // Add Steem
 steem.api.setOptions({ url: 'https://api.steemit.com'});
@@ -27,6 +28,8 @@ ReactDOM.render((
     <Provider store={reducers}>
         <Router>
             <Switch>
+
+                <Route exact path="/login" component={ Login } /> 
 
             	<Bootstrap>
 

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import steem from 'steem';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import FeaturedChannels from './FeaturedChannels';
+import { logout } from './../actions/app';
 
 class Header extends Component {
 
@@ -12,13 +13,39 @@ class Header extends Component {
         super(props);
 
         this.state = {
-
+            "authenticated": false
         }   
+
+        this.logout = this.logout.bind(this);
 
     } 
 
-    componentDidMount() {
+    componentWillMount() {
 
+        if(this.props.app.username && this.props.app.publicWif) {
+            this.setState({
+                authenticated: true
+            })
+        }
+
+    }
+
+    componentWillReceiveProps(nextProps) { 
+
+        if(nextProps.app.username && nextProps.app.publicWif) {
+            this.setState({
+                authenticated: true
+            })
+        }
+
+    }
+
+    logout() {
+        this.setState({
+            authenticated: false
+        })
+
+        this.props.logout();
     }
 
     render() {
@@ -29,15 +56,32 @@ class Header extends Component {
                     Welcome to ViceTube
                 </div>
                 <div className="col search-wrapper">
-                    <div class="form-group my-0">
+                    <div className="form-group my-0">
                         <input type="email" className="form-control" placeholder="Search something..." />
                     </div>
                 </div>
                 <div className="col controls-wrapper">
-                    <div class="d-flex justify-content-end">
-                        <button type="button" className="btn btn-light">Login</button>
-                        <button type="button" className="btn btn-light mx-3">Signup</button>
-                        <button type="button" className="btn btn-danger">Upload</button>
+                    <div className="d-flex justify-content-end">
+
+                        {
+                            this.state.authenticated ? (
+                                <span>
+                                    <button type="button" className="btn btn-light mx-3" onClick={this.logout}>Logout</button>
+                                    <Link to="/upload" className="btn btn-danger">Upload</Link>
+                                </span>
+
+                            ) : (
+
+                                <span>
+                                    <Link to="/login" className="btn btn-light">Login</Link>
+                                    <Link to="/signup" className="btn btn-light mx-3">Signup</Link>
+                                    <Link to="/login" className="btn btn-danger">Upload</Link>
+                                </span>
+
+                            )
+
+                        }
+
                     </div>
                 </div>
             </div>
@@ -50,9 +94,9 @@ class Header extends Component {
 function mapStateToProps(state) {
 
     return { 
-        search: state.search
+        app: state.app
     };
     
 }
 
-export default connect(mapStateToProps, {})(Header);
+export default connect(mapStateToProps, { logout })(Header);

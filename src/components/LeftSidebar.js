@@ -4,6 +4,7 @@ import steem from 'steem';
 import { NavLink } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 import FeaturedChannels from './FeaturedChannels';
+import Subscriptions from './Subscriptions';
 
 class LeftSidebar extends Component {
 
@@ -14,7 +15,7 @@ class LeftSidebar extends Component {
         this.state = {
             tags: [],
             loading: true
-        }   
+        }  
 
     } 
 
@@ -73,8 +74,8 @@ class LeftSidebar extends Component {
             <div className="col left-sidebar">
                 <h3>Categories</h3>
                 { this.renderTags() }
-                <h3>Featured Channels</h3>
                 <FeaturedChannels/> 
+                <Subscriptions/>
             </div>
         )
         
@@ -85,7 +86,7 @@ class LeftSidebar extends Component {
 function mapStateToProps(state) {
 
     return { 
-        search: state.search
+        app: state.app
     };
     
 }
