@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FilterBar from './components/FilterBar';
+import Item from './components/Item';
 import steem from 'steem';
 import { Link } from 'react-router-dom';
 import moment from 'moment'
@@ -44,8 +45,6 @@ class Home extends Component {
     }
 
     loadContent(filter) {
-
-        console.log("Loading Filter", filter)
 
         let query = {
             'tag': '',
@@ -104,10 +103,6 @@ class Home extends Component {
 
     }
 
-    truncateTitle(title) {
-        return title.substring(0, 40);
-    }
-
     renderPosts() {
         if(this.state.loading) {
             return (
@@ -120,22 +115,7 @@ class Home extends Component {
                     this.state.posts.map(
 
                         (Post) =>
-                            <div className="col-lg-3 col-md-4 item-wrapper mb-3" key={ Post.id } ref={ Post.id }>
-                                <Link to={ "/" + Post.author + "/" + Post.permlink }>
-                                    <img src="http://via.placeholder.com/300x180" className="img-fluid"/>
-                                </Link>
-                                <div className="d-flex w-100">
-                                    <div className="title">
-                                        <Link to={ "/" + Post.author + "/" + Post.permlink }>{this.truncateTitle(Post.title)}</Link>
-                                    </div>
-                                    <div className="earnings text-right">
-                                        $300,35
-                                    </div>
-                                </div>
-                                <div className="meta-info">
-                                    { Post.author } &middot; { moment.utc(Post.active).tz( moment.tz.guess() ).fromNow() }
-                                </div>
-                            </div>
+                            <Item key={ Post.id } ref={ Post.id } data={ Post } />
                         ) 
                     }
                 </div>

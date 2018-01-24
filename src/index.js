@@ -13,6 +13,8 @@ import './sass/bootstrap.scss';
 import './sass/App.scss';
 import './sass/Select.scss';
 import './sass/VideoPlayer.scss';
+import './sass/Header.scss';
+import './sass/LeftSidebar.scss';
 
 // Components
 import Bootstrap from './Bootstrap';
@@ -20,6 +22,7 @@ import Home from './Home';
 import Tag from './Tag';
 import Post from './Post';
 import Login from './Login';
+import Channel from './Channel';
 
 // Add Steem
 steem.api.setOptions({ url: 'https://api.steemit.com'});
@@ -37,6 +40,7 @@ ReactDOM.render((
                 	<Route path="/tag/:tag/:filter" component={ Tag } />  
                 	<Route exact path="/:author/:permalink" component={ Post } /> 
                     
+
                 </Bootstrap> 
 
             </Switch>
