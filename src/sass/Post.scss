@@ -1,0 +1,48 @@
+.video-post {
+    .video-info {
+        background: #272C2F;
+        padding-top:20px;
+        padding-bottom: 20px;
+        
+        h2 {
+            font-size:20px;
+            margin:0 0 0 0;
+            line-height: 30px;
+        }
+
+        .amount {
+            font-size:20px;
+            font-weight:600;
+        }
+    }
+
+    .video-meta {
+        margin-top:20px;
+        margin-bottom: 20px;
+
+        .author-card-wrapper {
+
+            .avatar-holder {
+                width:50px;
+                img {
+                    width:40px;
+                    height:40px;
+                }
+            }
+
+            .data-holder {
+                width:calc(100% - 50px);
+            }
+
+        }
+
+        .meta {
+            .votes {
+                font-weight: 600;
+                font-size: 13px;
+                margin-left:5px;
+            }
+        }
+    }
+
+}

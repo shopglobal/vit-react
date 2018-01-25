@@ -17,6 +17,7 @@ import './sass/Header.scss';
 import './sass/LeftSidebar.scss';
 import './sass/Item.scss';
 import './sass/Upload.scss';
+import './sass/Post.scss';
 
 
 // Components
