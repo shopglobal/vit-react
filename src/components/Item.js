@@ -28,7 +28,7 @@ class Item extends Component {
                 </Link>
                 <div className="d-flex w-100">
                     <div className="title">
-                        <Link to={ "/" + this.props.data.author + "/" + this.props.data.permlink }>{this.truncateTitle(this.props.data.title)}</Link>
+                        <Link params={{ post: this.props.data }} to={ "/" + this.props.data.author + "/" + this.props.data.permlink }>{this.truncateTitle(this.props.data.title)}</Link>
                     </div>
                     <div className="earnings text-right">
                         ${ this.displayPayoutAmount(this.props.data.pending_payout_value) }
