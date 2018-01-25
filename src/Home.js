@@ -15,8 +15,11 @@ class Home extends Component {
         this.state = {
             'filter': '',
             'loading': true,
-            'posts': []
+            'posts': [],
+            'loading_more': false
         }
+
+        this.loadMoreContent = this.loadMoreContent.bind(this);
 
     } 
 
@@ -40,6 +43,80 @@ class Home extends Component {
                 this.loadContent(this.state.filter);
             });
             
+        }
+
+    }
+
+    loadMoreContent() {
+
+        this.setState({
+            'loading_more': true
+        })
+
+        let load_more_query =  {
+            'tag': '',
+            'limit': 30,
+            'start_author': this.state.posts[this.state.posts.length - 1].author,
+            'start_permlink': this.state.posts[this.state.posts.length - 1].permlink
+        }
+
+        // TODO: refactore the code below
+
+        if(this.state.filter == 'trending') {
+
+            steem.api.getDiscussionsByTrending(load_more_query, (err, result) => {
+            
+                result.splice(0, 1);
+                let all_posts = this.state.posts.concat(result);
+
+                this.setState({
+                    posts: all_posts,
+                    'loading_more': false
+                })
+
+            });
+
+        } else if(this.state.filter == 'new') {
+
+            steem.api.getDiscussionsByCreated(load_more_query, (err, result) => {
+            
+                result.splice(0, 1);
+                let all_posts = this.state.posts.concat(result);
+
+                this.setState({
+                    posts: all_posts,
+                    'loading_more': false
+                })
+            });
+
+        } else if(this.state.filter == 'hot') {
+
+            steem.api.getDiscussionsByHot(load_more_query, (err, result) => {
+            
+                result.splice(0, 1);
+                let all_posts = this.state.posts.concat(result);
+
+                this.setState({
+                    posts: all_posts,
+                    'loading_more': false
+                })
+
+            });
+            
+        } else if(this.state.filter == 'promoted') {
+
+            steem.api.getDiscussionsByPromoted(load_more_query, (err, result) => {
+            
+                result.splice(0, 1);
+                let all_posts = this.state.posts.concat(result);
+
+                this.setState({
+                    posts: all_posts,
+                    'loading_more': false
+                })
+
+            });
+
         }
 
     }
@@ -108,7 +185,7 @@ class Home extends Component {
             return (
                 <div className="row w-100 h-100 justify-content-center mt-5">
 
-                    <div class="loader">Loading...</div>
+                    <div className="loader">Loading...</div>
 
                 </div>
             )
@@ -131,7 +208,21 @@ class Home extends Component {
         
         return [
             <FilterBar { ...this.props } key="filter-bar" path="/"/>,
-            <div key="posts">{ this.renderPosts() }</div>
+            <div key="posts">{ this.renderPosts() }</div>,
+            <div className="mb-4 mt-1 text-center" key="load-more">
+
+                {
+                    !this.state.loading ? (
+
+                        <button className="btn btn-dark"  onClick={(e) => this.loadMoreContent(e)} disabled={this.state.loading_more}>Load more</button>  
+
+                    ) : (
+
+                        null
+
+                    )
+                }
+            </div>
         ]
         
     }
