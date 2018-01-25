@@ -32,7 +32,7 @@ class FeaturedChannels extends Component {
                         (Channel) =>
                             <li key={ Channel.url } ref={ Channel.url }>
     
-                                <NavLink to={ '/channel/' + Channel.url }>
+                                <NavLink to={ '/channel/@' + Channel.url }>
                                     <div className="d-flex featured-channel-item">
                                         <div className="avatar-holder">
                                             <img src="http://via.placeholder.com/30x30"/>

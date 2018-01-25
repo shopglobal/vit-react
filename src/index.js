@@ -51,10 +51,11 @@ ReactDOM.render((
 
                         } } 
                     />
-        
+                    <Route path="/channel/@:author" component={ Channel } /> 
                 	<Route path="/tag/:tag/:filter" component={ Tag } />  
-                	<Route exact path="/:author/:permalink" component={ Post } /> 
+                	<Route exact path="/@:author/:permalink" component={ Post } /> 
                     <Route path="/upload" component={ Upload } /> 
+                    
 
                 </Bootstrap> 
 

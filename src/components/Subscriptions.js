@@ -54,7 +54,7 @@ class Subscriptions extends Component {
                         (Subscription) =>
                             <li key={ Subscription.following } ref={ Subscription.following }>
     
-                                <NavLink to={ '/channel/' + Subscription.following }>
+                                <NavLink to={ '/channel/@' + Subscription.following }>
                                     { Subscription.following }
                                 </NavLink>
                             </li>
