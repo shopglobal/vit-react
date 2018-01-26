@@ -8,6 +8,23 @@
 
     a {
         color:#fff;
+        text-decoration:none;
+        .active-dot {
+            display:none;
+        }
+
+        &:hover {
+            color:#ccc;
+        }
+
+        &.active {
+            .active-dot {
+                display:inline-block;
+                font-size:6px;
+                position:relative;
+                top:-2px;
+            }
+        }
     }
 
     .tag-list {

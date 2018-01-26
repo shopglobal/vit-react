@@ -39,6 +39,13 @@ class LeftSidebar extends Component {
 
     }
 
+    getActiveClass(current_tag) {
+
+        if(this.props.location.pathname.split("/")[1] == current_tag) {
+            return "active";
+        } else return null;
+    }
+
     renderTags() {
         if(this.state.loading) {
             return (
@@ -54,9 +61,9 @@ class LeftSidebar extends Component {
                         (Tag) =>
                             <li key={ Tag.name } ref={ Tag.name }>
     
-                                <NavLink activeClassName="active" to={ '/' + Tag.name + '/trending' }>
-                                    { Tag.name }
-                                </NavLink>
+                                <Link className={ this.getActiveClass(Tag.name) } to={ '/' + Tag.name + '/trending' }>
+                                    { Tag.name } <span className="active-dot"><i className="fa fa-circle text-danger"></i></span>
+                                </Link>
                             </li>
                         ) 
 
