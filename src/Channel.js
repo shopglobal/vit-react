@@ -38,7 +38,7 @@ class Channel extends Component {
         
         return (
             <div>
-                Channel...
+                Channel view. Work in progress.
             </div>
         )
         

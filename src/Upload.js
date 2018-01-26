@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import steem from 'steem';
 import { Link } from 'react-router-dom';
-import moment from 'moment'
+import moment from 'moment';
+import Header from './components/Header';
 
 class Upload extends Component {
 
@@ -31,7 +32,7 @@ class Upload extends Component {
     render() {
         
         return (
-            <div>Upload</div>
+            <div>Upload view. Work in progress.</div>
         )
         
     }

@@ -40,21 +40,26 @@ ReactDOM.render((
                 <Route exact path="/login" component={ Login } /> 
                 
             	<Bootstrap>
-
+               
                     <Route 
                         exact
                         path="/:filter?" 
                         render={ props => { 
 
-                            if( props.location.pathname != '/upload') return <Home {...props} /> 
-                            else return null;
+                            var test_url = /trending|new|hot|promoted/.test(props.location.pathname);
+                            var test_url2 = /@/.test(props.location.pathname);
+ 
+                            if(test_url) return <Home {...props} /> 
+                            else if(props.location.pathname == '/upload') return <Upload {...props} />
+                            else if(test_url2) return <Channel {...props} />
+                            else return <Redirect to="/trending"/>
 
                         } } 
                     />
-                    <Route path="/channel/@:author" component={ Channel } /> 
+                    
                 	<Route path="/tag/:tag/:filter" component={ Tag } />  
                 	<Route exact path="/@:author/:permalink" component={ Post } /> 
-                    <Route path="/upload" component={ Upload } /> 
+                    
                     
 
                 </Bootstrap> 

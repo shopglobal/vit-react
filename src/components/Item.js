@@ -35,7 +35,7 @@ class Item extends Component {
                     </div>
                 </div>
                 <div className="meta-info">
-                    <Link to={ "/channel/@" + this.props.data.author }>{ this.props.data.author }</Link> &middot; { moment.utc(this.props.data.active).tz( moment.tz.guess() ).fromNow() }
+                    <Link to={ "/@" + this.props.data.author }>{ this.props.data.author }</Link> &middot; { moment.utc(this.props.data.active).tz( moment.tz.guess() ).fromNow() }
                 </div>
             </div>
         )
