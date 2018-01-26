@@ -28,6 +28,7 @@ import Post from './Post';
 import Login from './Login';
 import Channel from './Channel';
 import Upload from './Upload';
+import Categories from './Categories';
 
 // Add Steem
 steem.api.setOptions({ url: 'https://api.steemit.com'});
@@ -52,6 +53,7 @@ ReactDOM.render((
  
                             if(test_if_home) return <Home {...props} /> 
                             else if(props.location.pathname == '/upload') return <Upload {...props} />
+                            else if(props.location.pathname == '/categories') return <Categories {...props} />
                             else if(test_if_channel) return <Channel {...props} />
                             else return <Redirect to="/trending/"/>
 
@@ -69,10 +71,8 @@ ReactDOM.render((
                         } }
                     /> 
                     <Route path="/@:author/:permalink" component={ Post } /> 
-                	 
-                	
-                    
-                    
+
+                	                    
 
                 </Bootstrap> 
 

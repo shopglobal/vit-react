@@ -45,7 +45,13 @@ class Subscriptions extends Component {
             )
         } else {
             return [
-                <h3 key="section-title">Subscriptions</h3>,
+
+                <div className="d-flex justify-content-between align-items-center" key="section-title">
+                    <h3>Subscriptions</h3>
+                    <div>
+                        <i className="fa fa-ellipsis-v text-dark cursor-pointer"></i>
+                    </div>
+                </div>,
                 <ul className="list-unstyled" ref="subscriptions" key="subscriptions-list">
                     { 
 
