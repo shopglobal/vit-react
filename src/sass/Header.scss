@@ -5,5 +5,19 @@
     .logo-wrapper {
         max-width:250px;
     }
+
+    .search-wrapper {
+    	position:relative;
+    	i {
+    		position:absolute;
+    		top:11px;
+    		left:27px;
+    		color:#ccc;
+    	}
+
+    	.form-control {
+    		padding-left:35px;
+    	}
+    }
     
 }

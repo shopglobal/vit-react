@@ -70,6 +70,7 @@ class Header extends Component {
                 </div>
                 <div className="col search-wrapper">
                     <div className="form-group my-0">
+                        <i className="fa fa-search"></i>
                         <input type="email" className="form-control" placeholder="Search something..." />
                     </div>
                 </div>
@@ -80,7 +81,7 @@ class Header extends Component {
                             this.state.authenticated ? (
                                 <span>
                                     <button type="button" className="btn btn-light mx-3" onClick={this.logout}>Logout</button>
-                                    <Link to="/upload" className="btn btn-danger">Upload</Link>
+                                    <Link to="/upload" className="btn btn-danger"><i className="fa fa-cloud-upload-alt mr-2"></i>Upload</Link>
                                 </span>
 
                             ) : (
@@ -88,7 +89,7 @@ class Header extends Component {
                                 <span>
                                     <Link to="/login" className="btn btn-light">Login</Link>
                                     <Link to="/signup" className="btn btn-light mx-3">Signup</Link>
-                                    <Link to="/login" className="btn btn-danger">Upload</Link>
+                                    <Link to="/login" className="btn btn-danger"><i className="fa fa-cloud-upload-alt mr-2"></i>Upload</Link>
                                 </span>
 
                             )
