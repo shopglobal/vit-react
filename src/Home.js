@@ -174,8 +174,6 @@ class Home extends Component {
 
         } else {
 
-            this.props.history.push('trending');
-
         }
 
     }

@@ -132,8 +132,6 @@ class Tag extends Component {
         if(filter == 'trending') {
 
             steem.api.getDiscussionsByTrending(query, (err, result) => {
-
-                console.log("result", result)
             
                 this.setState({
                     posts: result,
@@ -176,8 +174,6 @@ class Tag extends Component {
             });
 
         } else {
-
-            this.props.history.push('trending');
 
         }
 
