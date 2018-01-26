@@ -61,4 +61,22 @@
         margin:0 0 15px 0;
         line-height: 18px;
     }
+
+    ul {
+        li {
+            a {
+                color:#fff;
+                text-decoration:none;
+            }
+            margin:0 0 0 0;
+            h4 {
+                font-size:14px;
+                margin:20px 0 10px 0;
+            }
+        }
+    }
+
+    img {
+        border-radius:4px;
+    }
 }

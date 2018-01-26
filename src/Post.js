@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import steem from 'steem';
 import { Player, BigPlayButton } from 'video-react';
+import { NavLink, Link } from 'react-router-dom';
 
 class Post extends Component {
 
@@ -12,6 +13,8 @@ class Post extends Component {
         this.state = {
             post: '',
             loading: true,
+            related: [],
+            loading_related: true,
             tag: this.props.match.params.tag,
             author: this.props.match.params.author,
             permalink: this.props.match.params.permalink
@@ -46,6 +49,18 @@ class Post extends Component {
             let post = result;
 
             console.log("Got post", post)
+
+            steem.api.getDiscussionsByAuthorBeforeDate(author.replace('@',''), permalink, post.active, 5, (err, result) => {
+                
+                result.splice(0, 1);
+ 
+                this.setState({
+                    loading_related: false,
+                    related: result
+                });
+
+
+            });
 
             steem.api.getAccounts([post.author], (err, result) => {
 
@@ -102,7 +117,7 @@ class Post extends Component {
                                             </div>
                                             <div className="data-holder">
                                                 <div>{ this.state.post.author }</div>
-                                                <button class="btn btn-sm btn-danger">Subscribe</button>
+                                                <button className="btn btn-sm btn-danger">Subscribe</button>
                                             </div>
                                         </div>
                                     </div>
@@ -124,20 +139,35 @@ class Post extends Component {
                 <div className="col-3 related-videos">
                     <h3>Related Videos</h3>
 
-                    <ul className="list-unstyled">
-                        <li>
-                            1
-                        </li>
-                        <li>
-                            1
-                        </li>
-                        <li>
-                            1
-                        </li>
-                        <li>
-                            1
-                        </li>
-                    </ul>
+                    {
+                        !this.state.loading_related ? (
+                            
+                            <ul className="list-unstyled">
+                                { 
+
+                                this.state.related.map(
+
+                                    (Related) =>
+                                        <li key={ Related.id } ref={ Related.id }>
+
+                                            <Link to={ '/@' + Related.author + '/' + Related.permlink }>
+                                                <h4>{ Related.title }</h4>
+                                                <img src="http://via.placeholder.com/300x180" className="img-fluid"/>
+                                            </Link>
+                                        </li>
+                                    ) 
+
+                                }
+                            </ul>
+
+                        ) : (
+                            <div className="row w-100 h-100">
+                                
+                            </div>
+                        )
+                    
+                    }
+
                 </div>
             </div>
         )
