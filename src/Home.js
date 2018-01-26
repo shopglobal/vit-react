@@ -212,7 +212,18 @@ class Home extends Component {
                 {
                     !this.state.loading ? (
 
-                        <button className="btn btn-dark"  onClick={(e) => this.loadMoreContent(e)} disabled={this.state.loading_more}>Load more</button>  
+                        <button className="btn btn-dark"  onClick={(e) => this.loadMoreContent(e)} disabled={this.state.loading_more}>
+
+                            {
+                                !this.state.loading_more ? (
+                                    <strong>Load More</strong>
+                                ) : (
+                                    <strong>Loading...</strong>
+                                )
+
+                            }
+
+                        </button>  
 
                     ) : (
 
