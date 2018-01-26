@@ -4,8 +4,17 @@ import Header from './components/Header';
 import { connect } from 'react-redux';
 import steem from 'steem';
 import { restoreLogin } from './actions/app';
+import ReactDOM from 'react-dom';
 
 class Bootstrap extends Component {
+
+    constructor(props) {
+
+        super(props);
+
+        this.toggleLeftSidebarCallback = this.toggleLeftSidebarCallback.bind(this);
+
+    } 
 
     componentDidMount() {
 
@@ -14,8 +23,6 @@ class Bootstrap extends Component {
             publicWif = localStorage.getItem("publicWif");
 
         if(username && publicWif && !this.props.app.authorized) {
-
-            console.log("RUN BOOTSTRAP CHECK")
 
             // verify the creds against the blockchain
             steem.api.getAccounts([username], (err, accounts) => {
@@ -54,11 +61,18 @@ class Bootstrap extends Component {
 
     }
 
+    toggleLeftSidebarCallback() {
+
+        var node = ReactDOM.findDOMNode(this.refs.content_wrapper);
+        node.classList.toggle('left-sidebar-off');
+
+    }
+
     render() {
 
         return [
-            <Header key="header"/>,
-            <div className="row mx-0 content-wrapper h-100" key="content-wrapper">
+            <Header key="header" toggle={ this.toggleLeftSidebarCallback }/>,
+            <div className="row mx-0 content-wrapper h-100" key="content-wrapper" ref="content_wrapper">
                 <LeftSidebar { ...this.props } />
                 <div className="col content">
                     { this.props.children }

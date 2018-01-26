@@ -12,10 +12,21 @@ html, body {
 
 .content {
     background: #1C2023;
-    min-width:calc(100% - 250px);
-    max-width:calc(100% - 250px);
     overflow-y: auto;
     color:#fff;
+    min-width:calc(100% - 250px);
+    max-width:calc(100% - 250px);
+}
+
+.left-sidebar-off {
+    .content {
+        min-width:100%;
+        max-width:100%;
+    }
+
+    .left-sidebar {
+        display:none;
+    }
 }
 
 .featured-channels-list {
