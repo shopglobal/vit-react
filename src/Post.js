@@ -29,7 +29,7 @@ class Post extends Component {
 
         if(votes) {
             return (
-                <button type="button" className="btn btn-dark btn-sm">Like <span className="votes">{votes.length}</span></button>
+                <button type="button" className="btn btn-danger btn-sm"><i className="fa fa-thumbs-up"></i> Like <span className="votes">{votes.length}</span></button>
             )
         }
         
@@ -70,8 +70,8 @@ class Post extends Component {
     render() {
         
         return (
-            <div className="row justify-content-center">
-                <div className="col-lg-9 col-md-10 col-10 mt-5 video-post">
+            <div className="row justify-content-center mt-3">
+                <div className="col-9 video-post">
                     <Player
                         playsInline
                         src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
@@ -83,16 +83,16 @@ class Post extends Component {
                         !this.state.loading ? (
                             
                             <span>
-                                <div className="row video-info mx-0">
-                                    <div className="col-10">
+                                <div className="row video-info">
+                                    <div className="col-9">
                                         <h2>{ this.state.post.title }</h2>
                                     </div>
-                                    <div className="col-2 text-right amount">
+                                    <div className="col-3 text-right amount">
                                         ${ this.displayPayoutAmount(this.state.post.pending_payout_value) }
                                     </div>
                                 </div>
-                                <div className="row video-meta mx-0 align-items-center">
-                                    <div className="col-6 author px-0">
+                                <div className="row video-meta align-items-center">
+                                    <div className="col-6 author">
                                         <div className="d-flex author-card-wrapper align-items-center">
                                             <div className="avatar-holder">
 
@@ -101,11 +101,12 @@ class Post extends Component {
                     
                                             </div>
                                             <div className="data-holder">
-                                                { this.state.post.author }
+                                                <div>{ this.state.post.author }</div>
+                                                <button class="btn btn-sm btn-danger">Subscribe</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-6 meta text-right px-0">
+                                    <div className="col-6 meta text-right">
                                         { this.getVotes(this.state.post.active_votes) }
                                     </div>
                                 </div>
@@ -118,7 +119,25 @@ class Post extends Component {
                         )
                     
                     }
-                    
+
+                </div>
+                <div className="col-3 related-videos">
+                    <h3>Related Videos</h3>
+
+                    <ul className="list-unstyled">
+                        <li>
+                            1
+                        </li>
+                        <li>
+                            1
+                        </li>
+                        <li>
+                            1
+                        </li>
+                        <li>
+                            1
+                        </li>
+                    </ul>
                 </div>
             </div>
         )

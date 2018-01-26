@@ -1,8 +1,7 @@
 .video-post {
     .video-info {
-        background: #272C2F;
-        padding-top:20px;
-        padding-bottom: 20px;
+        padding-top:12px;
+        padding-bottom: 12px;
         
         h2 {
             font-size:20px;
@@ -17,21 +16,29 @@
     }
 
     .video-meta {
-        margin-top:20px;
+
         margin-bottom: 20px;
 
         .author-card-wrapper {
 
             .avatar-holder {
-                width:50px;
+                width:60px;
                 img {
-                    width:40px;
-                    height:40px;
+                    width:45px;
+                    height:45px;
+                    margin-top:3px;
                 }
             }
 
             .data-holder {
-                width:calc(100% - 50px);
+                width:calc(100% - 60px);
+                .btn {
+                    padding:0 5px 0 5px;
+                    font-size:11px;
+                    text-transform:uppercase;
+                    font-weight:500;
+                    margin:0 0 0 0;
+                }
             }
 
         }
@@ -40,9 +47,18 @@
             .votes {
                 font-weight: 600;
                 font-size: 13px;
-                margin-left:5px;
+                
             }
         }
     }
 
+}
+
+.related-videos {
+    
+    h3 {
+        font-size:18px;
+        margin:0 0 15px 0;
+        line-height: 18px;
+    }
 }
