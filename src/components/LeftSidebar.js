@@ -54,7 +54,7 @@ class LeftSidebar extends Component {
                         (Tag) =>
                             <li key={ Tag.name } ref={ Tag.name }>
     
-                                <NavLink activeClassName="active" to={ '/tag/' + Tag.name + '/trending' }>
+                                <NavLink activeClassName="active" to={ '/' + Tag.name + '/trending' }>
                                     { Tag.name }
                                 </NavLink>
                             </li>

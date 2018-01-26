@@ -213,7 +213,7 @@ class Tag extends Component {
         
         
         return [
-            <FilterBar { ...this.props } key="filter-bar" path={ "/tag/" + this.state.tag + "/" } />,
+            <FilterBar { ...this.props } key="filter-bar" path={ "/" + this.state.tag + "/" } />,
             <div key="posts">{ this.renderPosts() }</div>,
             <div className="mb-4 mt-1 text-center" key="load-more">
 

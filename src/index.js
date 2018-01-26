@@ -46,18 +46,18 @@ ReactDOM.render((
                         path="/:filter?" 
                         render={ props => { 
 
-                            var test_url = /trending|new|hot|promoted/.test(props.location.pathname);
-                            var test_url2 = /@/.test(props.location.pathname);
+                            var test_if_home = /trending|new|hot|promoted/.test(props.location.pathname);
+                            var test_if_channel = /@/.test(props.location.pathname);
  
-                            if(test_url) return <Home {...props} /> 
+                            if(test_if_home) return <Home {...props} /> 
                             else if(props.location.pathname == '/upload') return <Upload {...props} />
-                            else if(test_url2) return <Channel {...props} />
+                            else if(test_if_channel) return <Channel {...props} />
                             else return <Redirect to="/trending"/>
 
                         } } 
                     />
                     
-                	<Route path="/tag/:tag/:filter" component={ Tag } />  
+                	<Route path="/:tag/:filter" component={ Tag } />  
                 	<Route exact path="/@:author/:permalink" component={ Post } /> 
                     
                     
