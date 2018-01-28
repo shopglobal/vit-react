@@ -152,7 +152,7 @@ class Post extends Component {
 
                                             <Link to={ '/@' + Related.author + '/' + Related.permlink }>
                                                 <h4>{ Related.title }</h4>
-                                                <img src="http://via.placeholder.com/300x180" className="img-fluid"/>
+                                                <img src="/images/thumbnail.jpg" className="img-fluid"/>
                                             </Link>
                                         </li>
                                     ) 

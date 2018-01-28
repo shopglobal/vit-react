@@ -20,8 +20,6 @@ class Header extends Component {
         this.logout = this.logout.bind(this);
         this.toggleLeftSidebar = this.toggleLeftSidebar.bind(this);
 
-        console.log(">>> props of h", this.props)
-
     } 
 
     componentWillMount() {
@@ -66,7 +64,7 @@ class Header extends Component {
                     <button type="button" className="btn btn-light mr-2 left-sidebar-toggle" onClick={(e) => this.toggleLeftSidebar(e)} >
                         <i className="fas fa-bars"></i>
                     </button>
-                    ViceTube Dev
+                    <img src="/images/logo.png" className="logo"/>
                 </div>
                 <div className="col search-wrapper">
                     <div className="form-group my-0">

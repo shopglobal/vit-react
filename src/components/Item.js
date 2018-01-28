@@ -6,10 +6,24 @@ import moment from 'moment'
 class Item extends Component {
 
     constructor(props) {
-
         super(props);
-
     } 
+
+    renderThumbnail() {
+
+        /*
+        let json_metadata = JSON.parse(this.props.data.json_metadata);
+        if(json_metadata.image) {
+            let src = json_metadata.image[0];
+            return <img src={ src } />
+        } else {
+            return <img src="http://via.placeholder.com/300x180" className="img-fluid"/>
+        }
+        */
+
+        return <img src="/images/thumbnail.jpg" className="img-fluid"/>
+        
+    }
 
     truncateTitle(title) {
         return title.substring(0, 40);
@@ -24,7 +38,7 @@ class Item extends Component {
         return (
             <div className="col-lg-3 col-md-4 item-wrapper mb-3" key={ this.props.data.id } ref={ this.props.data.id }>
                 <Link to={ "/@" + this.props.data.author + "/" + this.props.data.permlink }>
-                    <img src="http://via.placeholder.com/300x180" className="img-fluid"/>
+                    { this.renderThumbnail() }
                 </Link>
                 <div className="d-flex w-100">
                     <div className="title">
