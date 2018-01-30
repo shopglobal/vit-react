@@ -1,7 +1,10 @@
 .video-post {
     .video-info {
-        padding-top:12px;
-        padding-bottom: 12px;
+        background-color: #272b2e;
+        padding-top:15px;
+        padding-bottom: 15px;
+        margin:0 0 0 0;
+        border-bottom:1px solid rgba(255, 255, 255, 0.1);
         
         h2 {
             font-size:20px;
@@ -17,38 +20,40 @@
 
     .video-meta {
 
-        margin-bottom: 20px;
+        background-color: #272b2e;
+        margin:0 0 0 0;
+        padding-top:15px;
+        padding-bottom: 15px;
 
         .author-card-wrapper {
 
             .avatar-holder {
-                width:60px;
+                width:90px;
                 img {
-                    width:45px;
-                    height:45px;
+                    width:75px;
+                    height:75px;
                     margin-top:3px;
                 }
             }
 
             .data-holder {
-                width:calc(100% - 60px);
+                width:calc(100% - 90px);
+                font-size:20px;
                 .btn {
-                    padding:0 5px 0 5px;
-                    font-size:11px;
+                    padding:2px 8px 2px 8px;
+                    font-size:13px;
                     text-transform:uppercase;
                     font-weight:500;
                     margin:0 0 0 0;
+                    letter-spacing:1px;
                 }
             }
 
         }
 
         .meta {
-            .votes {
-                font-weight: 600;
-                font-size: 13px;
-                
-            }
+            font-weight: 600;
+            font-size: 24px;
         }
     }
 

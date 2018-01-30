@@ -103,7 +103,7 @@ class Post extends Component {
                                         <h2>{ this.state.post.title }</h2>
                                     </div>
                                     <div className="col-3 text-right amount">
-                                        ${ this.displayPayoutAmount(this.state.post.pending_payout_value) }
+                                        { this.getVotes(this.state.post.active_votes) }
                                     </div>
                                 </div>
                                 <div className="row video-meta align-items-center">
@@ -122,7 +122,7 @@ class Post extends Component {
                                         </div>
                                     </div>
                                     <div className="col-6 meta text-right">
-                                        { this.getVotes(this.state.post.active_votes) }
+                                        ${ this.displayPayoutAmount(this.state.post.pending_payout_value) }
                                     </div>
                                 </div>
                             </span>
